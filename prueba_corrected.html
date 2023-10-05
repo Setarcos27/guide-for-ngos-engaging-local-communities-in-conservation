@@ -1,0 +1,1449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento de Prueba</title>
+    
+<style>
+    /* Estilo general del cuerpo */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    /* Estilo del contenedor principal */
+    .main-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+    }
+
+    /* Estilo de los títulos y subtítulos */
+    h1, h2, p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    /* Estilo de la lista principal */
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    /* Estilo de los ítems de la lista principal */
+    ul > li {
+        margin-bottom: 10px;
+    }
+    
+    /* Estilo de los ítems al pasar el cursor */
+    ul > li > a:hover {
+        color: #007BFF;
+        transition: color 0.3s;
+    }
+
+    /* Estilo de los contenidos ocultos */
+    .hidden-content {
+        display: none;
+        margin-top: 10px;
+        padding-left: 20px;
+    }
+
+    /* Estilo de los ítems de las listas ocultas */
+    .hidden-content ul > li {
+        margin-bottom: 5px;
+    }
+
+    /* Estilo de la pestaña para expandir */
+    .expand-content {
+        display: none;
+        margin-top: 5px;
+        color: #007BFF;
+    }
+    
+    /* Estilo de la pestaña al pasar el cursor */
+    .expand-content:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        transition: text-decoration 0.3s;
+    }
+    /* Style for the toggle button */
+    .switchButton {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Hide the index content by default */
+    .index-content {
+        display: none;
+    }
+
+
+    /* Style the button to look like a link */
+    button.link-style {
+    background: none;
+    border: none;
+    color: #007BFF;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    }
+
+    button.link-style:hover {
+    text-decoration: none;
+    }
+
+
+
+
+.left-window-visible {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1070px; /* covers the left half of the screen */ 
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000; /* ensures the window is on top */
+}
+
+
+
+</style>
+
+
+
+
+
+    <script>
+        function toggleContent(elementId) {
+            var content = document.getElementById(elementId);
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+        // Function to toggle between main content and index
+        function toggleView() {
+            let mainContent = document.getElementById('main-content');
+            let indexContent = document.getElementById('index-content');
+
+            var leftWindows = document.querySelectorAll('.left-window-visible');
+        
+            
+
+            if (mainContent.style.display === 'none') {
+                mainContent.style.display = 'block';
+                indexContent.style.display = 'none';
+                // Ocultar todas las ventanas (establecer display en "none")
+                for (var i = 0; i < leftWindows.length; i++) {
+                    leftWindows[i].style.display = 'none';
+                }
+            } else {
+                mainContent.style.display = 'none';
+                indexContent.style.display = 'block';
+            }
+        }
+
+        function changeView(exampleId) {
+            // Obtener todos los elementos con la clase "left-window-visible"
+            var leftWindows = document.querySelectorAll('.left-window-visible');
+        
+            // Ocultar todas las ventanas (establecer display en "none")
+            for (var i = 0; i < leftWindows.length; i++) {
+                leftWindows[i].style.display = 'none';
+            }
+        
+            // Obtener la ventana correspondiente al exampleId y mostrarla
+            var selectedWindow = document.getElementById('text-' + exampleId);
+            if (selectedWindow) {
+                selectedWindow.style.display = 'block';
+            }
+        }
+        
+        
+        
+        
+        
+    </script>
+
+<style>
+    .main-container {
+        overflow-y: auto;
+        height: 90vh;
+    }
+</style>
+
+
+<style>
+    .main-container {
+        padding: 40px;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Guide for NGOs: Engaging Local Communities in Conservation and <strong>Development</strong></h1>
+        <!-- Content for Example 1 -->
+    <div id="text-example1" class="left-window-visible">
+        
+        <head>
+            <title>L'ISTRICE: Championing Community-Led Conservation</title>
+            <style>
+                body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #e6f7ff;
+                margin: 20px;
+                padding: 20px;
+                }
+                h1, h2 {
+                color: #007BFF;
+                }
+                h2 {
+                border-bottom: 2px solid #007BFF;
+                padding-bottom: 10px;
+                }
+                ul {
+                list-style-type: none;
+                }
+                li {
+                background-color: #d4edda;
+                margin: 8px 0;
+                padding: 10px;
+                border-radius: 4px;
+                }
+                strong {
+                color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+
+        <h1>L'ISTRICE: The Pulse of Community-Led Conservation</h1>
+        <p>Founded by a multifaceted team, L'ISTRICE understands the fabric of its community, right from the classroom to the natural reserves.</p>
+
+        <h2>Community Touchpoints</h2>
+        
+        <ul>
+            <li>
+            <strong>School Workshops:</strong><br>
+            Tailored educational programs in schools focus on hands-on environmental activities, turning classrooms into active conservation hubs.
+            </li>
+
+            <li>
+            <strong>Eco-Tourism:</strong><br>
+            From thematic walks in RNR Oasi WWF Calanchi di Atri to eco-conscious Hostel stays, L'ISTRICE makes every trip a journey through nature's textbook.
+            </li>
+
+            <li>
+            <strong>Eco Ristoro:</strong><br>
+            This isn't just a food hub; it's a sustainability showcase. Local agricultural produce served in biodegradable containers spells a win-win for palate and planet.
+            </li>
+
+            <li>
+            <strong>Empowering Local Businesses:</strong><br>
+            Through courses aimed at agricultural companies, L'ISTRICE is sowing seeds for a sustainable economic landscape.
+            </li>
+
+            <li>
+            <strong>Expert Synergy:</strong><br>
+            The collaboration goes beyond the founding team, roping in experts from diverse fields. It's a confluence of wisdom for well-rounded community programs.
+            </li>
+
+            <li>
+            <strong>Voices Heard:</strong><br>
+            Open channels of communication mean community inputs aren't just welcomed; they're integral to shaping programs and celebrating successes.
+            </li>
+
+            <li>
+            <strong>Heritage Matters:</strong><br>
+            Local cultural elements aren't just preserved; they're celebrated and integrated into educational and tourism initiatives.
+            </li>
+        </ul>
+        
+        <img src="https://i.imgur.com/9b68zKK.jpg">
+        <img src="https://i.imgur.com/CS8jTjT.jpg">
+        <img src="https://i.imgur.com/gjASyiM.jpg">
+
+        </body>
+
+
+    </div> 
+   
+
+    <!-- Content for Example 2 -->
+    <div id="text-example2" class="left-window-visible">
+        <head>
+            <title>CulTourAbruzzo: A Community-Centric Approach</title>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #e6f7ff;
+                margin: 20px;
+                padding: 20px;
+              }
+              h1, h2 {
+                color: #007BFF;
+              }
+              h2 {
+                border-bottom: 2px solid #007BFF;
+                padding-bottom: 10px;
+              }
+              ul {
+                list-style-type: none;
+              }
+              li {
+                background-color: #d4edda;
+                margin: 8px 0;
+                padding: 10px;
+                border-radius: 4px;
+              }
+              strong {
+                color: #28a745;
+              }
+            </style>
+          </head>
+          <body>
+          
+            <h1>CulTourAbruzzo: A Community-Centric Approach</h1>
+            <p>Immerse yourself in Atri, a cultural gem in Abruzzo. CulTourAbruzzo isn't just another tourism initiative—it's a bridge connecting the community's heritage with a sustainable future.</p>
+          
+            <h2>Engaging the Local Community</h2>
+        
+            <ul>
+              <li>
+                <strong>Tailored Experiences:</strong><br>
+                Beyond generic tours, explore the Atri Underground, ancient fountains, or pedal through with e-bikes—each tour guided by local experts.
+              </li>
+        
+              <li>
+                <strong>Cultural Celebrations:</strong><br>
+                Year-round events like the Lavanda in Fiore festival don't just attract tourists; they amplify the local culture and bring the community together.
+              </li>
+        
+              <li>
+                <strong>Skills Development:</strong><br>
+                Community members receive hands-on training in tourist reception, social media, and communication, becoming active stewards of their own heritage.
+              </li>
+              
+              <li>
+                <strong>Empowering the Community:</strong><br>
+                CulTourAbruzzo's success lies in empowering locals with economic opportunities and skill development, all while preserving and promoting Atri's rich heritage.
+              </li>
+        
+            </ul>
+            <img src="https://i.imgur.com/vBcIGum.jpg">
+            <img src="https://i.imgur.com/i8X9ftb.jpg">
+            <img src="https://i.imgur.com/n0Bl49a.jpg">
+          </body>
+    </div> 
+
+
+    <div id="text-example3" class="left-window-visible">
+        <head>
+            <title>Riserva Naturale Atriana: Community-led Revival of Gallina Nera Atriana</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    background-color: #e6f7ff;
+                    margin: 20px;
+                    padding: 20px;
+                }
+                h1, h2 {
+                    color: #007BFF;
+                }
+                h2 {
+                    border-bottom: 2px solid #007BFF;
+                    padding-bottom: 10px;
+                }
+                ul {
+                    list-style-type: none;
+                }
+                li {
+                    background-color: #d4edda;
+                    margin: 8px 0;
+                    padding: 10px;
+                    border-radius: 4px;
+                }
+                strong {
+                    color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+        
+        <h1>Riserva Naturale Atriana: Gallina Nera Atriana Revival</h1>
+        <p>At the heart of Italy's Riserva Naturale Atriana is a chicken species as rare as it is extraordinary—the Gallina Nera Atriana. More than feathers and clucks, this species embodies the spirit of a community committed to sustainable conservation.</p>
+        
+        <h2>Community-Driven Revival</h2>
+        
+        <ul>
+            <li>
+                <strong>Grassroots Discovery:</strong><br>
+                Dr. Adriano De Ascentiis joined hands with local families to identify the first breeders of Gallina Nera Atriana. Found in a family-run farm, the species had been preserved by a 92-year-old man.
+            </li>
+        
+            <li>
+                <strong>Empowering Local Custodians:</strong><br>
+                Dr. De Ascentiis kickstarted a recovery project with just 20 eggs. Twelve local families now nurture 113 Gallina Nera Atriana chickens, all without external funding.
+            </li>
+        
+            <li>
+                <strong>Preserving Cultural Identity:</strong><br>
+                Renamed from Gallina di Atri to Gallina Nera Atriana, this chicken species bears historical significance, deepening the community's roots and pride.
+            </li>
+        
+            <li>
+                <strong>Academic Collaboration:</strong><br>
+                Genetic studies were conducted with universities to confirm the uniqueness of the breed, bridging community wisdom with scientific rigor.
+            </li>
+        
+            <li>
+                <strong>Transparent Progress:</strong><br>
+                Open forums and transparent communication keep the community informed and involved in the species' conservation journey.
+            </li>
+        </ul>
+        
+        <img src="https://i.imgur.com/YDpsMyt.jpg">
+        <img src="https://i.imgur.com/i6hbNsR.jpg">
+        <img src="https://i.imgur.com/tWtd6PX.jpg">
+        
+        </body>
+        
+    </div>
+
+    <div id="text-example4" class="left-window-visible">
+        <head>
+            <title>Llogara Pass: A Success Story in Community Engagement</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    background-color: #e6f7ff;
+                    margin: 20px;
+                    padding: 20px;
+                }
+                h1, h2 {
+                    color: #007BFF;
+                }
+                h2 {
+                    border-bottom: 2px solid #007BFF;
+                    padding-bottom: 10px;
+                }
+                ul {
+                    list-style-type: none;
+                }
+                li {
+                    background-color: #d4edda;
+                    margin: 8px 0;
+                    padding: 10px;
+                    border-radius: 4px;
+                }
+                strong {
+                    color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Llogara Pass Community Engagement Success</h1>
+            <p>Located in the heart of southern Albania, Llogara Pass has transformed from a picturesque locale to a model of community-led sustainable development. This has been made possible through proactive community engagement in various aspects of eco-conservation and cultural heritage.</p>
+        
+            <h2>Engagement Milestones</h2>
+            <ul>
+                <li>
+                    <strong>Community Hub:</strong><br>
+                    A dedicated community center became the nerve center for all activities. It served as a space for regular interaction between the NGO and local residents, who were included in the decision-making process.
+                </li>
+                <li>
+                    <strong>Local Liaison:</strong><br>
+                    One of the residents was chosen to bridge communication between the NGO and the community, streamlining information flow.
+                </li>
+                <li>
+                    <strong>Eco-Tourism Revolution:</strong><br>
+                    Residents were trained to lead eco-tours, emphasizing the unique ecology and culture of Llogara Pass, thereby creating sustainable income streams.
+                </li>
+                <li>
+                    <strong>Education for Conservation:</strong><br>
+                    Local schools adopted environmental curricula, reinforced by field trips, thus nurturing a new generation of eco-conscious citizens.
+                </li>
+                <li>
+                    <strong>Cultural Crafts:</strong><br>
+                    Artisans were coached to produce handicrafts that mirrored the rich local culture. These became popular souvenirs, boosting the local economy.
+                </li>
+                <li>
+                    <strong>Evidence-Based Actions:</strong><br>
+                    Partnering with environmental experts ensured that conservation strategies were not just well-intended, but scientifically sound.
+                </li>
+                <li>
+                    <strong>Festivals & Traditions:</strong><br>
+                    Local customs were given a platform, simultaneously attracting tourists and reinforcing community pride.
+                </li>
+                <li>
+                    <strong>Open Dialogue:</strong><br>
+                    Community updates were frequent and feedback-driven, making every resident feel valued and heard.
+                </li>
+                <li>
+                    <strong>Continuous Adaptation:</strong><br>
+                    Community feedback was actively used for monitoring and tweaking programs for better results.
+                </li>
+                <li>
+                    <strong>Shared Triumphs:</strong><br>
+                    The success of the eco-tourism program was celebrated through a grand local event, marking a high point in community morale.
+                </li>
+            </ul>
+            <img src="https://www.visitsaranda.net/wp-content/uploads/2022/04/llogara-pass-5-1-1024x683.jpg">
+            <img src="https://s1.wklcdn.com/image_34/1045327/113986707/73247308Master.jpg">
+        </body>
+        
+    </div>
+
+    
+
+    <div id="text-example5" class="left-window-visible">
+        <head>
+            <title>Slovak Paradise National Park: A Community-Driven Conservation Success</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+                  background-color: #e6f7ff;
+                  margin: 20px;
+                  padding: 20px;
+                }
+                h1, h2 {
+                  color: #007BFF;
+                }
+                h2 {
+                  border-bottom: 2px solid #007BFF;
+                  padding-bottom: 10px;
+                }
+                ul {
+                  list-style-type: none;
+                }
+                li {
+                  background-color: #d4edda;
+                  margin: 8px 0;
+                  padding: 10px;
+                  border-radius: 4px;
+                }
+                strong {
+                  color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+        
+          <h1>Slovak Paradise National Park</h1>
+          <p>Amidst its waterfalls and lush landscapes, Slovak Paradise National Park faced conservation challenges. The game-changer? Involving the local community in pragmatic, impactful ways.</p>
+        
+          <h2>Community-Powered Conservation</h2>
+        
+          <ul>
+            <li>
+              <strong>Community Insight:</strong><br>
+              Surveys informed us that locals depended on the park for livelihood, so we made them part of the solution, not the problem.
+            </li>
+        
+            <li>
+              <strong>Town Halls & Representation:</strong><br>
+              Regular meetings and a community liaison ensure everyone's voice is heard, fostering a sense of collective ownership.
+            </li>
+        
+            <li>
+              <strong>Green Tourism:</strong><br>
+              Locals trained as eco-tour guides regulate tourism and earn a sustainable income, doubling as conservation evangelists.
+            </li>
+        
+            <li>
+              <strong>Education Outreach:</strong><br>
+              Schools received resources and field trips to instill conservation values in the younger generation.
+            </li>
+        
+            <li>
+              <strong>Sustainable Farming & Crafts:</strong><br>
+              Organic farming training and craft workshops helped integrate conservation with livelihoods.
+            </li>
+        
+            <li>
+              <strong>Expert Collaboration:</strong><br>
+              Conservationists and scientists lend their expertise for smarter, community-informed strategies.
+            </li>
+        
+            <li>
+              <strong>Culture & Conservation:</strong><br>
+              Local festivals became conservation platforms and boosted the economy.
+            </li>
+        
+            <li>
+              <strong>Open Communication:</strong><br>
+              Transparency in updates and feedback loops made the community proactive watchdogs of the park.
+            </li>
+        
+            <li>
+              <strong>Celebrate Together:</strong><br>
+              A community fair marked the reduction in illegal activities, making conservation a shared victory.
+            </li>
+          </ul>
+        
+          <p><strong>Outcome:</strong> The synergy between the community and park authorities has turned locals into active protectors, promising long-term conservation success.</p>
+          
+          <img src="https://files.slovakia.travel/_processed_/csm_Slovensky%2520raj_01_b23411b86a.jpg">
+          <img src="https://govisity.com/wp-content/uploads/2018/08/Welcome_to_the_Slovak_Paradise_National_Park__Slovakia.jpg">
+        </body>
+        
+    </div>
+
+    <div id="text-example6" class="left-window-visible">
+        <head>
+            <title>Belogradchik Rocks: A Community-Driven Conservation Odyssey</title>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #e6f7ff;
+                margin: 20px;
+                padding: 20px;
+              }
+              h1, h2 {
+                color: #007BFF;
+              }
+              h2 {
+                border-bottom: 2px solid #007BFF;
+                padding-bottom: 10px;
+              }
+              ul {
+                list-style-type: none;
+              }
+              li {
+                background-color: #d4edda;
+                margin: 8px 0;
+                padding: 10px;
+                border-radius: 4px;
+              }
+              strong {
+                color: #28a745;
+              }
+            </style>
+          </head>
+          <body>
+          
+            <h1>Belogradchik Rocks: A Model of Community Engagement</h1>
+            <p>Nestled in northwest Bulgaria, the Belogradchik Rocks are not just geological marvels; they are the heart of the community. Coupled with the iconic Belogradchik Fortress, these landmarks form the core of local culture and heritage.</p>
+          
+            <h2>Actionable Community Engagement Strategies</h2>
+          
+            <ul>
+              <li>
+                <strong>Deep Dive into Local Context:</strong><br>
+                Conservation starts with understanding. Through rigorous historical research and dialogue with the community, we gauge the social and cultural value of the rocks and fortress.
+              </li>
+          
+              <li>
+                <strong>Empowering Voices through Town Halls:</strong><br>
+                These aren't mere meetings; they're a platform for each community member to contribute to the fate of their treasured landmarks.
+              </li>
+          
+              <li>
+                <strong>Green Travel Revolution:</strong><br>
+                Locals aren't just residents; they're eco-tour guides enlightening visitors on the unique geology and culture of the Belogradchik area.
+              </li>
+          
+              <li>
+                <strong>Schools as Conservation Hubs:</strong><br>
+                Tailored educational modules ensure the youth are not just inheritors but also guardians of these landmarks.
+              </li>
+          
+              <li>
+                <strong>Economic Thrive through Craftsmanship:</strong><br>
+                Local artisans and organic farmers benefit directly from conservation, selling unique handicrafts and produce to eco-conscious travelers.
+              </li>
+          
+              <li>
+                <strong>Expert Alliances:</strong><br>
+                Our partnerships with geologists, historians, and environmentalists ensure our efforts are both scientifically and culturally attuned.
+              </li>
+          
+              <li>
+                <strong>Cultural Festivities:</strong><br>
+                Imagine annual festivals set against the dramatic backdrop of the fortress, where conservation marries cultural revelry.
+              </li>
+          
+              <li>
+                <strong>Communication is Our Cornerstone:</strong><br>
+                Ongoing, transparent updates keep the community involved, invested, and inspired.
+              </li>
+          
+              <li>
+                <strong>Feedback Fuels Progress:</strong><br>
+                Opinions from community, tourists, and experts continually refine our approach, making it truly a collective strategy.
+              </li>
+          
+              <li>
+                <strong>Celebration Marks Our Journey:</strong><br>
+                Each milestone—be it a surge in eco-tourism or fortress restoration—is a community triumph and a reason for collective celebration.
+              </li>
+            </ul>
+            <img src="https://vagabond.bg/sites/default/files/2023-05/belogradchik%20rocks.jpg">
+            <img src="https://vagabond.bg/sites/default/files/issues/200/10%20places%20in%20bulgaria%20to%20visit%20in%202023/krushunski%20waterfalls.jpg">
+          </body>
+          
+    </div>
+
+    <div id="text-example7" class="left-window-visible">
+        <head>
+            <title>Hutovo Blato Nature Park: Triumph of Community Engagement</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+                  background-color: #e6f7ff;
+                  margin: 20px;
+                  padding: 20px;
+                }
+                h1, h2 {
+                  color: #007BFF;
+                }
+                h2 {
+                  border-bottom: 2px solid #007BFF;
+                  padding-bottom: 10px;
+                }
+                ul {
+                  list-style-type: none;
+                }
+                li {
+                  background-color: #d4edda;
+                  margin: 8px 0;
+                  padding: 10px;
+                  border-radius: 4px;
+                }
+                strong {
+                  color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <h1>Hutovo Blato Nature Park</h1>
+            <p>Discover Hutovo Blato Nature Park in Bosnia and Herzegovina—a birdwatcher's paradise that thrives on robust community involvement. Here, every local is a conservationist at heart.</p>
+        
+            <h2>Community-Driven Success Stories</h2>
+        
+            <ul>
+                <li>
+                    <strong>Training Local Birdwatching Guides:</strong><br>
+                    Residents were trained as expert birdwatching guides, adding new livelihood opportunities and infusing a sense of ownership for the park's well-being.
+                </li>
+        
+                <li>
+                    <strong>Engaging Young Minds:</strong><br>
+                    Local schools participated in wetland ecology programs, complete with field trips to the park. The initiative nurtures young stewards for the park’s future.
+                </li>
+        
+                <li>
+                    <strong>Community Feedback Loops:</strong><br>
+                    Regular sessions invite locals to voice their opinions and concerns, making them an integral part of the park's decision-making process.
+                </li>
+        
+                <li>
+                    <strong>Booming Local Businesses:</strong><br>
+                    An increase in birdwatching tourism has seen locals open cafes, souvenir shops, and more—revenues of which are reinvested in the park.
+                </li>
+        
+                <li>
+                    <strong>The Power of Education:</strong><br>
+                    School programs ensure the next generation holds the keys to the park’s sustainability, creating a lasting cycle of community-led conservation.
+                </li>
+        
+                <li>
+                    <strong>Why It Worked:</strong><br>
+                    Community-driven initiatives led to tailored solutions, economic uplift, and generated enduring local commitment to the park's future.
+                </li>
+            </ul>
+            <img src="https://bosnia4u.com/wp-content/uploads/2017/05/2.-3.jpg">
+            <img src="https://bosnia4u.com/wp-content/uploads/2017/05/Hutovo-Blato.Krupa_.jpg">
+        
+        </body>
+        
+    </div>
+
+    <div id="text-example8" class="left-window-visible">
+        <head>
+            <title>Sutjeska National Park: A Masterclass in Community Engagement</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+                  background-color: #e6f7ff;
+                  margin: 20px;
+                  padding: 20px;
+                }
+                h1, h2 {
+                  color: #007BFF;
+                }
+                h2 {
+                  border-bottom: 2px solid #007BFF;
+                  padding-bottom: 10px;
+                }
+                ul {
+                  list-style-type: none;
+                }
+                li {
+                  background-color: #d4edda;
+                  margin: 8px 0;
+                  padding: 10px;
+                  border-radius: 4px;
+                }
+                strong {
+                  color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+        
+        <h1>Sutjeska National Park: A Masterclass in Community Engagement</h1>
+        <p>In Bosnia and Herzegovina, Sutjeska National Park isn't just a sanctuary for diverse flora and fauna—it's a canvas where the local community paints the art of sustainable living and conservation.</p>
+        
+        <h2>Community-Centric Initiatives</h2>
+        
+        <ul>
+            <li>
+                <strong>Community Voices Amplified:</strong><br>
+                Through a dedicated 'Community Engagement Committee', the park bridges the dialogue between locals and authorities. Open forums empower residents to share ideas and concerns.
+            </li>
+        
+            <li>
+                <strong>Eco-Tourism Excellence:</strong><br>
+                Locals become storytellers and guides, walking visitors through the park's rich tapestry of biodiversity and cultural history. This fuels conservation education and the local economy.
+            </li>
+        
+            <li>
+                <strong>Sustainability Meets Livelihood:</strong><br>
+                From sustainable farming to showcasing local handicrafts at the visitor center, community practices align with conservation goals, offering a win-win for all.
+            </li>
+        
+            <li>
+                <strong>Culture in Conservation:</strong><br>
+                Annual cultural fests celebrate traditional dances, crafts, and music, highlighting the beautiful symbiosis between community heritage and natural preservation.
+            </li>
+        
+            <li>
+                <strong>Transparent Conversations:</strong><br>
+                The community is kept in the loop with regular updates, ensuring a sense of shared ownership and value in conservation missions.
+            </li>
+        
+            <li>
+                <strong>Applauding Achievements:</strong><br>
+                Whether it’s winning an eco-tourism award or achieving sustainability milestones, victories are community celebrations, reinforcing a collective pride in their natural heritage.
+            </li>
+        </ul>
+        <img src="https://images.prismic.io/nationalparks/320bbbd2-eb10-48cc-9be3-ad5f7202a074_monument-sutjeska-national-park.jpg?auto=compress,format">
+        <img src="https://images.prismic.io/nationalparks/1537dfa0-ef96-46cb-beb2-e6f4bb6423d5_hiking-sutjeska-national-park.jpg?auto=compress,format">
+        
+        </body>
+        
+    </div>
+
+    <div id="text-example9" class="left-window-visible">
+
+        <head>
+            <title>Gran Paradiso: Ibex Conservation Through Community Power</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+                  background-color: #e6f7ff;
+                  margin: 20px;
+                  padding: 20px;
+                }
+                h1, h2 {
+                  color: #007BFF;
+                }
+                h2 {
+                  border-bottom: 2px solid #007BFF;
+                  padding-bottom: 10px;
+                }
+                ul {
+                  list-style-type: none;
+                }
+                li {
+                  background-color: #d4edda;
+                  margin: 8px 0;
+                  padding: 10px;
+                  border-radius: 4px;
+                }
+                strong {
+                  color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <h1>Gran Paradiso: Ibex Conservation Through Community Power</h1>
+            <p>From the brink of extinction to a tourist magnet, the story of the Alpine ibex in Italy's Gran Paradiso is a testament to successful community engagement. Let's dive into how local folks, NGOs, and park authorities teamed up to turn the tide.</p>
+        
+            <h2>Community-Powered Conservation Actions</h2>
+        
+            <ul>
+              <li>
+                <strong>Storytelling by Elders:</strong><br>
+                The ibex wasn't just another animal; it was a symbol of regional pride. Local historians and elders set the stage, sparking initial interest in ibex conservation.
+              </li>
+            
+              <li>
+                <strong>Knowledge is Power:</strong><br>
+                Through community meetings, residents learned about the ibex's role in the ecosystem and how its survival could bolster eco-tourism and, by extension, the local economy.
+              </li>
+            
+              <li>
+                <strong>Local Guides, Global Impact:</strong><br>
+                Trained local guides became the face of Gran Paradiso's eco-tourism, combining employment with conservation education.
+              </li>
+            
+              <li>
+                <strong>Schools Join the Cause:</strong><br>
+                Educational modules on ibex and ecosystem health found their way into local classrooms, ensuring that the next generation was equally committed.
+              </li>
+            
+              <li>
+                <strong>From Hunters to Craftsmen:</strong><br>
+                Sustainable alternatives like handicrafts and organic farming replaced hunting, marrying livelihood and conservation.
+              </li>
+            
+              <li>
+                <strong>Science Meets Tradition:</strong><br>
+                Experts were consulted to tailor conservation strategies, making locals an integral part of the scientific process.
+              </li>
+            
+              <li>
+                <strong>Culture Gets a New Star:</strong><br>
+                Ibex-themed festivals and events strengthened its role in the cultural fabric of Gran Paradiso.
+              </li>
+        
+              <li>
+                <strong>Open Books, Open Minds:</strong><br>
+                Transparent communication ensured everyone was in the loop regarding the ibex's population status and the impact of eco-tourism.
+              </li>
+              
+              <li>
+                <strong>Together We Achieve:</strong><br>
+                Community-led monitoring and the celebration of milestones reinforced collective responsibility and success.
+              </li>
+            </ul>
+        
+            <p><strong>Outcome:</strong> Today, the ibex population is thriving, attracting global tourists and serving as a shining example of community-engaged conservation.</p>
+        
+            <img src="https://i.imgur.com/CF62tkc.jpg">
+            <img src="https://i.imgur.com/ilsJmDY.jpg">
+            <img src="https://i.imgur.com/c2ygln6.jpg">
+            
+        </body>
+        
+        
+    </div>
+
+    <div id="text-example10" class="left-window-visible">
+        <head>
+            <title>Montseny Biosphere Reserve: Grassroots Conservation</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+                  background-color: #e6f7ff;
+                  margin: 20px;
+                  padding: 20px;
+                }
+                h1, h2 {
+                  color: #007BFF;
+                }
+                h2 {
+                  border-bottom: 2px solid #007BFF;
+                  padding-bottom: 10px;
+                }
+                ul {
+                  list-style-type: none;
+                }
+                li {
+                  background-color: #d4edda;
+                  margin: 8px 0;
+                  padding: 10px;
+                  border-radius: 4px;
+                }
+                strong {
+                  color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+        
+          <h1>Montseny Biosphere Reserve: Grassroots Conservation</h1>
+          <p>Nestled in Catalonia, Spain, Montseny isn't just a treasure trove of biodiversity; it's a living cultural tapestry. Here, conservation echoes in the hearts of the local community, and the synergy is tangible.</p>
+        
+          <h2>Community-Centric Approaches</h2>
+          
+          <ul>
+            <li>
+              <strong>Local Wisdom:</strong><br>
+              Partnering with community elders to tap into time-honored practices that have been the stewards of Montseny's ecology for generations.
+            </li>
+        
+            <li>
+              <strong>Your Voice Matters:</strong><br>
+              Routine community assemblies ensure everyone's views are considered, and their concerns promptly addressed.
+            </li>
+        
+            <li>
+              <strong>Green Tourism:</strong><br>
+              Trained locals guide eco-tours, offering a genuine, low-impact experience that benefits both nature and the community.
+            </li>
+        
+            <li>
+              <strong>Learning Green:</strong><br>
+              Local schools are engaged in custom environmental education programs, shaping young conservationists.
+            </li>
+        
+            <li>
+              <strong>Harmony in Livelihood:</strong><br>
+              Boosting income through eco-friendly farming and crafts, aligning economic gains with nature conservation.
+            </li>
+        
+            <li>
+              <strong>Science Meets Tradition:</strong><br>
+              Researchers and locals join forces to inform conservation measures with both cutting-edge science and indigenous knowledge.
+            </li>
+        
+            <li>
+              <strong>Transparent Talks:</strong><br>
+              Open channels and regular updates keep the community looped in, fortifying trust.
+            </li>
+        
+            <li>
+              <strong>Together We Achieve:</strong><br>
+              Community-wide celebrations of conservation milestones amplify collective morale.
+            </li>
+          </ul>
+          <img src="https://www.laselvaturisme.com/wp-content/uploads/2014/06/Montseny_Gorg-de-la-Plana1.jpg">
+          <img src="http://www.spainisculture.com/export/sites/cultura/multimedia/galerias/espacios_naturales/6100608.jpg_1306973099.jpg">
+          
+        </body>
+        
+    </div>
+
+    <div id="text-example11" class="left-window-visible">
+        <head>
+            <title>Transition Town Totnes: A Blueprint in Community Engagement</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+                  background-color: #e6f7ff;
+                  margin: 20px;
+                  padding: 20px;
+                }
+                h1, h2 {
+                  color: #007BFF;
+                }
+                h2 {
+                  border-bottom: 2px solid #007BFF;
+                  padding-bottom: 10px;
+                }
+                ul {
+                  list-style-type: none;
+                }
+                li {
+                  background-color: #d4edda;
+                  margin: 8px 0;
+                  padding: 10px;
+                  border-radius: 4px;
+                }
+                strong {
+                  color: #28a745;
+                }
+            </style>
+        </head>
+        <body>
+        
+        <h1>Transition Town Totnes (TTT)</h1>
+        <p>Birthed in Totnes, UK, Transition Town Totnes isn't just a movement—it's a living example of how community engagement can spark a resilient, sustainable society.</p>
+        
+        <h2>Community Engagement Highlights</h2>
+        
+        <ul>
+          <li>
+            <strong>Local Awareness Campaigns:</strong><br>
+            Right from its infancy, TTT used events, films, and talks to deepen community understanding of climate change and local resilience.
+          </li>
+        
+          <li>
+            <strong>The Totnes Pound:</strong><br>
+            Created in 2007 to boost local businesses, this local currency is a tangible outcome of community suggestions and participation.
+          </li>
+        
+          <li>
+            <strong>Farm to Table:</strong><br>
+            Community gardens and the Totnes Food Hub were not just projects but answers to the community's need for sustainable food practices.
+          </li>
+        
+          <li>
+            <strong>Education for Action:</strong><br>
+            Tailored courses on permaculture and renewable energy equip locals with the skills to be active contributors to sustainability.
+          </li>
+        
+          <li>
+            <strong>United We Stand:</strong><br>
+            Partnerships with schools and businesses ensure that the push for a sustainable Totnes is a collective community endeavor.
+          </li>
+        
+          <li>
+            <strong>Feedback is Gold:</strong><br>
+            Regular community meetings act as a two-way street for ideas and adjustments, keeping TTT's initiatives aligned with local needs.
+          </li>
+        </ul>
+        
+        <p>In a nutshell, Transition Town Totnes thrives on its rooted community engagement, synergistic collaborations, and its adaptable nature. The community isn't just involved; it's the engine driving sustainable change.</p>
+        
+        <img src="https://thehappybeast.com/wp-content/uploads/2017/08/totnes-transition-town-the-happy-beast.jpg">
+        <img src="https://visittotnes.co.uk/wp-content/uploads/2017/01/DSC00759.jpg">
+        </body>
+    </div>
+
+    <div id="text-example12" class="left-window-visible">
+        <head>
+            <title>Peneda-Gerês National Park: A Community-Centric Conservation Model</title>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #e6f7ff;
+                margin: 20px;
+                padding: 20px;
+              }
+              h1, h2 {
+                color: #007BFF;
+              }
+              h2 {
+                border-bottom: 2px solid #007BFF;
+                padding-bottom: 10px;
+              }
+              ul {
+                list-style-type: none;
+              }
+              li {
+                background-color: #d4edda;
+                margin: 8px 0;
+                padding: 10px;
+                border-radius: 4px;
+              }
+              strong {
+                color: #28a745;
+              }
+            </style>
+          </head>
+        
+          <body>
+            <h1>Peneda-Gerês National Park: The Power of Community Engagement</h1>
+            <p>Nestled in northwest Portugal, Peneda-Gerês is not just a National Park but a living tapestry of communities who've been the park's guardians for generations. Let's dive into how these locals are at the heart of the park's successful conservation story.</p>
+            
+            <h2>Community-First Conservation Strategies</h2>
+        
+            <ul>
+              <li>
+                <strong>Understanding Local Context:</strong><br>
+                Before jumping into action, researchers immersed themselves in local culture and traditions, aligning their conservation plans with the community's needs.
+              </li>
+        
+              <li>
+                <strong>Voices That Matter:</strong><br>
+                Regular community meetings have been the cornerstone for gaining invaluable feedback and building trust, ensuring that every conservation effort resonates with the local needs.
+              </li>
+        
+              <li>
+                <strong>Local Guides, Global Reach:</strong><br>
+                Trained locals lead eco-tours, blending storytelling and traditional practices to enrich visitor experiences and educate them about the park's unique biodiversity and cultural heritage.
+              </li>
+        
+              <li>
+                <strong>Livelihood and Nature in Harmony:</strong><br>
+                With sustainable grazing and local handicraft promotion, the community doesn't just survive; it thrives alongside nature.
+              </li>
+        
+              <li>
+                <strong>Culture as a Conservation Pillar:</strong><br>
+                From vibrant festivals to heritage events, the community's rich cultural tapestry is woven into the very fabric of conservation efforts.
+              </li>
+        
+              <li>
+                <strong>Transparent Updates:</strong><br>
+                Information centers around the park keep everyone in the loop, ensuring transparency and ongoing dialogue.
+              </li>
+        
+              <li>
+                <strong>Success Worth Sharing:</strong><br>
+                From species reintroductions to boosts in local economy, each success is a community triumph and is celebrated as such, inspiring other conservation models.
+              </li>
+            </ul>
+            <img src="https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/01/Misarela-Bridge-surrounded-by-rocky-landscape-and-green-forest-in-Peneda-Geres-National-Park-northern-Portugal.jpg">
+            <img src="https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/01/Cascada-Poco-Azul-waterfall-on-a-mountain-stream.jpg">
+          </body>
+    </div>
+
+    <div id="text-example13" class="left-window-visible">
+        <head>
+            <title>Danube Delta Biosphere Reserve: Community Engagement</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+                  background-color: #e6f7ff;
+                  margin: 20px;
+                  padding: 20px;
+                }
+                h1, h2 {
+                  color: #007BFF;
+                }
+                h2 {
+                  border-bottom: 2px solid #007BFF;
+                  padding-bottom: 10px;
+                }
+                ul {
+                  list-style-type: none;
+                }
+                li {
+                  background-color: #d4edda;
+                  margin: 8px 0;
+                  padding: 10px;
+                  border-radius: 4px;
+                }
+                strong {
+                  color: #28a745;
+                }
+              </style>
+          </head>
+          <body>
+          
+            <h1>Danube Delta Biosphere Reserve</h1>
+            <p>Located in Romania, the Danube Delta is a renowned UNESCO World Heritage site and one of Europe's most valuable wetlands. Here, community engagement isn't just a buzzword—it's the backbone of our successful conservation efforts.</p>
+          
+            <h2>Key Community Engagements</h2>
+            
+            <ul>
+              <li>
+                <strong>Eco-Tourism Initiatives:</strong><br>
+                Locals lead bird-watching tours and traditional fishing practices are part of the eco-tourism experience. This generates income and educates visitors on the importance of the delta's ecosystem.
+              </li>
+          
+              <li>
+                <strong>Sustainable Livelihoods:</strong><br>
+                Local crafts like reed weaving and pottery are showcased in workshops. Organic farming is promoted, merging livelihood with conservation.
+              </li>
+          
+              <li>
+                <strong>Cultural Heritage Integration:</strong><br>
+                Traditional music, dance, and festivals are incorporated into conservation plans. Traditional knowledge in fishing and agriculture is documented and used in modern strategies.
+              </li>
+          
+              <li>
+                <strong>Collaboration with Experts:</strong><br>
+                Scientists work hand-in-hand with locals, making new discoveries and ensuring community members have a deep understanding of their environment.
+              </li>
+          
+              <li>
+                <strong>Transparent Communication:</strong><br>
+                Regular community meetings are held, challenges are discussed openly, and solutions are developed collectively.
+              </li>
+          
+              <li>
+                <strong>Celebration of Successes:</strong><br>
+                Victories like the reintroduction of species and improved water quality are celebrated with the community, boosting morale and reinforcing the importance of conservation.
+              </li>
+            </ul>
+            <img src="https://deims.org/sites/default/files/styles/full_size/public/photos/010916-009.jpg?itok=FYZkzrPm">
+            <img src="https://deims.org/sites/default/files/styles/full_size/public/photos/PICT7033.JPG?itok=Vd3-0wZ3">
+    </div>
+    
+
+    <!-- Add more hidden divs for additional examples as needed -->
+
+    
+    <div class="main-container">
+
+    <!-- Toggle switch button -->
+    <button id="switchButton" onclick="toggleView()">Practical Examples</button>
+
+    <!-- Main content -->
+    <div id="main-content">
+        
+            
+    <ul>
+
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-1')"><strong>1. Understand the Local Context</strong></a>
+            <div id="content-1" class="hidden-content">
+                <ul>
+    <li><strong>Research</strong> the history, culture, and socio-economic dynamics of the community.</li><li><strong>Engage</strong> with local leaders, elders, and influencers to gain insights into community needs and aspirations.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-2')"><strong>2. Foster Community <strong>Engage</strong>ment</strong></a>
+            <div id="content-2" class="hidden-content">
+                <ul>
+    <li><strong>Involve</strong> the community in decision-making processes from the outset.</li><li><strong>Host</strong> regular community meetings, workshops, and feedback sessions.</li><li><strong><strong><strong>Establish</strong></strong></strong> a local liaison or community representative to bridge communication between the NGO and the community.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-3')"><strong>3. Promote Eco-Tourism</strong></a>
+            <div id="content-3" class="hidden-content">
+                <ul>
+    <li><strong>Develop</strong> eco-tourism activities tailored to the region's unique features.</li><li><strong>Train</strong> locals to lead tours, workshops, and other eco-tourism initiatives.</li><li><strong>Educate</strong> visitors about the ecological and cultural significance of the area.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-4')"><strong>4. Implement Educational Programs</strong></a>
+            <div id="content-4" class="hidden-content">
+                <ul>
+    <li><strong>Collaborate</strong> with schools to integrate environmental education into the curriculum.</li><li><strong>Organize</strong> workshops, seminars, and field trips for locals and tourists.</li><li><strong>Distribute</strong> informational materials, such as brochures, posters, and videos.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-5')"><strong>5. <strong>Support</strong> Sustainable Livelihoods</strong></a>
+            <div id="content-5" class="hidden-content">
+                <ul>
+    <li><strong>Identify</strong> and promote sustainable practices that benefit local livelihoods, such as organic farming, handicrafts, and eco-tourism.</li><li><strong><strong>Provide</strong></strong> training and resources to help locals adopt these practices.</li><li><strong><strong><strong>Establish</strong></strong></strong> local cooperatives or collectives to support and market sustainable products.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-6')"><strong>6. <strong>Collaborate</strong> with Experts</strong></a>
+            <div id="content-6" class="hidden-content">
+                <ul>
+    <li><strong>Partner</strong> with scientists, environmentalists, and local experts for research and conservation efforts.</li><li><strong>Seek</strong> external funding and resources to support evidence-based projects.</li><li><strong>Stay</strong> updated with the latest research and best practices in community engagement and conservation.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-7')"><strong>7. Integrate Cultural Heritage</strong></a>
+            <div id="content-7" class="hidden-content">
+                <ul>
+    <li><strong>Respect</strong> and celebrate the cultural heritage of the community.</li><li><strong>Incorporate</strong> traditional knowledge and practices into conservation strategies.</li><li><strong>Support</strong> cultural events, festivals, and initiatives that highlight the coexistence of nature and culture.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-8')"><strong>8. Ensure Transparent Communication</strong></a>
+            <div id="content-8" class="hidden-content">
+                <ul>
+    <li><strong><strong><strong>Establish</strong></strong></strong> clear channels of communication between the NGO and the community.</li><li><strong><strong>Provide</strong></strong> regular updates on project progress, challenges, and successes.</li><li><strong>Encourage</strong> feedback and suggestions from the community.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-9')"><strong>9. Monitor and Evaluate</strong></a>
+            <div id="content-9" class="hidden-content">
+                <ul>
+    <li><strong>Set</strong> clear objectives and indicators for community engagement and conservation efforts.</li><li><strong>Conduct</strong> regular evaluations to assess the impact and effectiveness of initiatives.</li><li><strong>Adapt</strong> strategies based on feedback and evaluation results.</li>
+                </ul>
+            </div>
+        </li>
+    
+        <li>
+            <a href="javascript:void(0);" onclick="toggleContent('content-10')"><strong>10. Celebrate Successes</strong></a>
+            <div id="content-10" class="hidden-content">
+                <ul>
+    <li><strong>Recognize</strong> and celebrate community achievements and milestones.</li><li><strong>Share</strong> success stories with a wider audience to inspire other communities and NGOs.</li><li><strong>Reinvest</strong> a portion of the project's success back into the community, ensuring long-term sustainability.</li>
+                </ul>
+            </div>
+        </li>
+    
+    </ul>
+
+    </div>
+
+    <!-- Index content -->
+    <div id="index-content">
+        <h2>Index:</h2>
+        <ul>
+            <!-- Replace 'Placeholder Title 1' with the actual title from the PDF -->
+            <li><button class="link-style" onclick="changeView('example1')">L’ISTRICE</button></li>
+            
+            <!-- Replace 'Placeholder Title 2' with the actual title from the PDF -->
+            <li><button class="link-style" onclick="changeView('example2')">CulTourAbruzzo</button></li>
+
+            <!-- Replace 'Placeholder Title 1' with the actual title from the PDF -->
+            <li><button class="link-style" onclick="changeView('example3')">Progetto Gallina Nera Atriana</button></li>
+            
+            <!-- Replace 'Placeholder Title 2' with the actual title from the PDF -->
+            <li><button class="link-style" onclick="changeView('example4')">Llogara Pass</button></li>
+
+            <li><button class="link-style" onclick="changeView('example5')">Slovak Paradise Natural Park</button></li>
+
+            <li><button class="link-style" onclick="changeView('example6')">Belogradehicks Rocks</button></li>
+
+
+            <li><button class="link-style" onclick="changeView('example7')">Hutovo Bato Nature Park</button></li>
+
+
+            <li><button class="link-style" onclick="changeView('example8')">Sujeska National Park</button></li>
+
+
+            <li><button class="link-style" onclick="changeView('example9')">Gran Paradiso</button></li>
+
+
+            <li><button class="link-style" onclick="changeView('example10')">Montseny Biosphere Reserve</button></li>
+
+
+            <li><button class="link-style" onclick="changeView('example11')">Transition Town</button></li>
+
+
+            <li><button class="link-style" onclick="changeView('example12')">Peneda-Gerês National Park</button></li>
+
+
+            <li><button class="link-style" onclick="changeView('example13')">The Danube Delta Biosphere Reserve</button></li>
+
+
+            
+            <!-- Add more buttons as needed and replace placeholders with actual titles -->
+        </ul>
+    </div>
+    
+
+    </div>
+</body>
+</html>
